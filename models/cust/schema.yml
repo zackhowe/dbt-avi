@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: LocationHistories
+    tests:
+      - dbt_utils.mutually_exclusive_ranges:
+          lower_bound_column: PeriodBeginUtcDttm
+          upper_bound_column: PeriodEndUtcDttm
+          partition_by: "(CustomerID + '-' + LocationID)"
+          gaps: not_allowed
+          zero_length_range_allowed: false
+
+  - name: Items
+    description: "Customer Items"
+    columns:
+      - name: CustomerID
+        data_type: smallint
+        description: "CustomerID is part of the Primary Key"
+        tests:
+          - not_null
+      - name: ItemID
+        data_type: int
+        description: "ItemID is part of the Primary Key"
+        tests:
+          - not_null
+    tests:
+      - unique:
+          column_name: "(CustomerID + '-' + ItemID)"
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - CustomerID
+            - ItemID

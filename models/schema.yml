@@ -1,0 +1,57 @@
+version: 2
+
+sources:  
+  - name: avi
+    database: prd-avatarv2-sqldb
+    tables:
+      - name: Customers
+      - name: CustomerContacts
+      - name: Locations
+      - name: Inventories
+      - name: InventoryUserGroupAssigned
+      - name: UsersGroups
+      - name: UserGroups
+      - name: Users
+  - name: inv
+    database: prd-avatarv2-sqldb
+    tables:
+      - name: Collections
+      - name: Items
+      - name: ItemComps
+      - name: ItemFields
+      - name: ItemImages      
+      - name: ItemNotes
+      - name: ImageFiles
+      - name: Rooms
+  - name: itm
+    database: prd-avatarv2-sqldb
+    tables:
+      - name: FieldLists
+      - name: FieldValues
+      - name: ItemTypeFields
+      - name: ItemTypes
+  - name: ref
+    database: prd-avatarv2-sqldb
+    tables:
+      - name: AppraisalTypes
+      - name: Appraisers
+      - name: Beneficiaries
+      - name: BeneficiaryRelationships
+      - name: Bibliographies
+      - name: BibliographyTypes
+      - name: ChargeTypes
+      - name: ContactSuffixTypes
+      - name: ContactTitleTypes
+      - name: ContactTypes
+      - name: InsuranceCompanies
+      - name: InventoryStatuses
+      - name: InventoryTypes
+      - name: ItemCategories
+      - name: ItemHistories
+      - name: Languages
+      - name: LocationTypes
+  - name: rpt
+    database: prd-avatarv2-sqldb
+    tables:
+      - name: GlossaryEntries
+      - name: PdfPages
